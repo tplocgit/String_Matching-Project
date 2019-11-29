@@ -18,11 +18,17 @@ private:
 	int s_height, s_width;
 	char** s_board;
 
-
 public:
 	Board();
 	Board(int height, int width);
 	~Board();
+
+public:
+	char* getRow(int row);
+	char* getCol(int col);
+
+	void printCol(int col);
+	void printRow(int row);
 
 };
 

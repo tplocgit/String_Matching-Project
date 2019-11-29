@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
+#include <iostream>
 #include "console.h"
 
 using namespace std;

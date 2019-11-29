@@ -9,6 +9,10 @@
 //#include<fstream>
 //#include<string>
 
+//--------
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
 using namespace std;
 
 #ifndef _console_header
