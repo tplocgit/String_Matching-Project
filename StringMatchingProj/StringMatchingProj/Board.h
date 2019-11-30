@@ -16,10 +16,14 @@ class Board
 {
 private:
 	int s_height, s_width;
-
+	char** s_board;
 
 
 public:
 	Board();
+	Board(int height, int width);
+	~Board();
+	char random(char start, char end);
+	void GenerateRandomData();
+	char* operator[](int index);
 };
-
