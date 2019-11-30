@@ -5,8 +5,8 @@
 class SM_Algorithm
 {
 public:
-	static vector<int> Brute_Force(char* pattern, char* text);
-	static vector<int> Kabin_Karp(char* pattern, char* text);
+	static vector<int> Brute_Force(char* pattern, int sizePatt, char* text, int sizeText);
+	static vector<int> Kabin_Karp(char* pattern, int m, char* text, int n);
 	static vector<int> Knuth_Morris_Pratt(char* pattern, char* text);
   
 public:

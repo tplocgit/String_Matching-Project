@@ -1,13 +1,7 @@
 #include "SM_Algorithm.h"
 
-vector<int> SM_Algorithm::Brute_Force(char* pattern, char* text) {
-	if (pattern == nullptr || text == nullptr)
-		throw "Error: Invalid input";
-
-	int sizePatt = strlen(pattern),
-		sizeText = strlen(text);
-
-	if (sizePatt > sizeText)
+vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, int sizeText) {
+	if (pattern == nullptr || text == nullptr || sizePatt > sizeText)
 		throw "Error: Invalid input";
 
 	vector<int> ans;
