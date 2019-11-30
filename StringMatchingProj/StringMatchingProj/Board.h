@@ -27,4 +27,3 @@ public:
 	void GenerateRandomData();
 	char* operator[](int index);
 };
-
