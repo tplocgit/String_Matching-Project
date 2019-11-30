@@ -4,6 +4,7 @@
 //#include<stdlib.h>
 #include<Windows.h>
 #include<windows.h>
+#include"pch.h"
 //#include<string.h>
 //#include<conio.h>
 //#include<fstream>

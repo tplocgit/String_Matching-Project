@@ -26,9 +26,12 @@ public:
 public:
 	char* getRow(int row);
 	char* getCol(int col);
-
 	void printCol(int col);
 	void printRow(int row);
+	void printBoard();
 
+//--------------------------------
+	char random(char start, char end);
+	void GenerateRandomData();
+	char* operator[](int index);
 };
-
