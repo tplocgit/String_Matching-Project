@@ -28,7 +28,8 @@ vector<int> SM_Algorithm::Kabin_Karp(char* pattern, char* text) {
 	for (int s = 0; s < n - m; ++s) {// O(n - m)
 		if (p == t) {
 			int count = 0;
-			while (count < m && pattern[count] == text[count]) count++; // Count same character, O(m)
+			while (count < m && pattern[count] == text[count])
+				count++; // Count same character, O(m)
 			if (count == m)// All character is same
 				res.push_back(s);
 		}
@@ -62,5 +63,6 @@ int SM_Algorithm::String_Hashing(char* patt, int q) {// O(m)
 }
 
 int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int h, int q) {// O(1)
-	return (d * (hash_value - h * first_char) + new_char) % q;
+	int t = (d * (hash_value - h * first_char) + new_char) % q;
+	return t >= 0 ? t : t + q;
 }
