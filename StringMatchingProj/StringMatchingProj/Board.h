@@ -17,8 +17,8 @@ class Board
 private:
 	int s_height, s_width;
 	char** s_board;
-
-
+public:
+	void printBoard();
 public:
 	Board();
 	Board(int height, int width);

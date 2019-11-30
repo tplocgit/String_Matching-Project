@@ -5,5 +5,5 @@ void GUI::SplashScreen(int time) {
 
 }
 int GUI::menu(vector <string> optionList) {
-
+	return -1;
 }

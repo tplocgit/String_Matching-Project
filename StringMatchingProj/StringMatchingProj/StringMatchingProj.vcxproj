@@ -137,6 +137,7 @@
     <ClCompile Include="CrossWord.cpp" />
     <ClCompile Include="FileEater.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="SM_Algorithm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

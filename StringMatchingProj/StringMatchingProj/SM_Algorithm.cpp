@@ -1,12 +1,10 @@
 #include "SM_Algorithm.h"
 
 vector<int> SM_Algorithm::Brute_Force(char* pattern, int m, char* text, int n) {
-
+	return {};
 }
 
-vector<int> SM_Algorithm::Kabin_Karp(char* pattern, char* text) {
-	int m = strlen(pattern);
-	int n = strlen(text);
+vector<int> SM_Algorithm::Kabin_Karp(char* pattern, int m, char* text, int n) {
 	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)
 		return {};
 
@@ -21,19 +19,19 @@ vector<int> SM_Algorithm::Kabin_Karp(char* pattern, char* text) {
 	//p: result
 
 	// Pre-processing, O(2m)
-	int p = SM_Algorithm::String_Hashing(pattern, q);
-	int t = SM_Algorithm::String_Hashing(text, q);
+	int p = SM_Algorithm::String_Hashing(pattern, m, q);
+	int t = SM_Algorithm::String_Hashing(text, m, q);
 
 	// O(m(n-m)) matching
-	for (int s = 0; s < n - m; ++s) {// O(n - m)
+	for (int s = 0; s <= n - m; ++s) {// O(n - m)
 		if (p == t) {
-			int count = 0;
-			while (count < m && pattern[count] == text[count])
+			int count = 1;
+			while (count < m && pattern[count - 1] == text[s + count - 1])
 				count++; // Count same character, O(m)
 			if (count == m)// All character is same
 				res.push_back(s);
 		}
-		if (s < n - m)
+		if (s <= n - m)
 			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h, q);
 	}
 
@@ -41,10 +39,10 @@ vector<int> SM_Algorithm::Kabin_Karp(char* pattern, char* text) {
 }
 
 vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, char* text) {
-
+	return {};
 }
 
-int SM_Algorithm::String_Hashing(char* patt, int q) {// O(m)
+int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
 	if (patt == nullptr)
 		throw "Error: Invalid input";
 	//d: alphabet
@@ -53,10 +51,9 @@ int SM_Algorithm::String_Hashing(char* patt, int q) {// O(m)
 	//h: d^(m - 1) % q
 	//p: result
 
-	int m = strlen(patt);
-	int p;
+	int p = 0;
 
-	for (int i = 0; i < m; ++i)
+	for (int i = 0; i < length; ++i)
 		p = (d * p + patt[i]) % q;
 
 	return p;
