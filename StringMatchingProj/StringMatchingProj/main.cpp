@@ -1,8 +1,7 @@
+#include "Board.h"
 #include"CrossWord.h"
 #include"GUI.h"
 #include"FileEater.h"
-
-
 
 int main() {
 	// For testing
@@ -37,8 +36,17 @@ int main() {
 
 	delete t, p;
 	//-------------------------------------------------------------
-	
-	
+	/*
+  Board p(5, 5);
+
+	p.printCol(1);
+	char* r = p.getCol(1);
+
+	cout << "\n";
+	for (int i = 0; i < 5; ++i)
+		cout << int(r[i]) << " ";
+	system("pause");
+	*/
 	
 	
 	
