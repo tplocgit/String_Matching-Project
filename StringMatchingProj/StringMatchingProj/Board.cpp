@@ -18,3 +18,19 @@ Board::~Board() {
 
 	delete[]s_board;
 }
+
+char Board::random(char start, char end) {
+	char result;
+	result = start + rand() % (end - start + 1);
+	return result;
+}
+
+void Board::GenerateRandomData() {
+	for (int i = 0; i < s_height; i++)
+		for (int j = 0; j < s_width; j++)
+			(*this)[i][j] = random('A', 'Z');
+}
+
+char* Board::operator[](int index) {
+	return s_board[index];
+}

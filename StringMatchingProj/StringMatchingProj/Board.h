@@ -23,6 +23,8 @@ public:
 	Board();
 	Board(int height, int width);
 	~Board();
-
+	char random(char start, char end);
+	void GenerateRandomData();
+	char* operator[](int index);
 };
 
