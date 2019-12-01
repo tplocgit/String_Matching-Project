@@ -54,21 +54,8 @@ vector<int> SM_Algorithm::Kabin_Karp(char* pattern, int m, char* text, int n) {
 	return res;
 }
 
-vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
-	vector<int> result;
-	vector<int> lps = findLPS(pattern, pSize);
-	int j = 0;
-	for (int i = 0; i < tSize; i++) {
-		while (j > 0 && (pattern[j] != text[i]))
-			j = lps[j - 1];
-		if (pattern[j] == text[i])
-			j++;
-		if (j == pSize) {
-			result.push_back(i - j + 1);
-			j = lps[j - 1];
-		}
-	}
-	return result;
+vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, char* text) {
+	return {};
 }
 
 int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
@@ -92,19 +79,4 @@ int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
 int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int h, int q) {// O(1)
 	int t = (d * (hash_value - h * first_char) + new_char) % q;
 	return t >= 0 ? t : t + q;
-}
-
-vector<int> SM_Algorithm::findLPS(char* pattern, int m) {
-	vector<int> lps;
-	lps.resize(m);
-	lps[0] = 0;
-	int j = 0;
-	for(int i = 1; i < m; i++) {
-		while ((pattern[j] != pattern[i]) && j > 0)
-			j = lps[j - 1];
-		if (pattern[j] == pattern[i])
-			j++;
-		lps[i] = j;
-	}
-	return lps;
 }
