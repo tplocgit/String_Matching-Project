@@ -12,6 +12,9 @@
     <Filter Include="Source Files\Input File">
       <UniqueIdentifier>{8d7a2551-2151-419b-8f8a-d7658cdf2b4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Ouput Files">
+      <UniqueIdentifier>{f4bc9878-4a47-47dc-8ded-188fc31d5860}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -74,6 +77,9 @@
     </Text>
     <Text Include="input100x100.txt">
       <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="output.txt">
+      <Filter>Source Files\Ouput Files</Filter>
     </Text>
   </ItemGroup>
 </Project>
