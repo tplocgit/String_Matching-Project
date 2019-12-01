@@ -12,5 +12,4 @@ public:
 public:
 	static int String_Hashing(char* patt,int length ,int q);
 	static int String_ReHashing(int hash_value, char first_char, char new_char, int h, int q);
-	static vector<int> findLPS(char* pattern, int m);
 };
