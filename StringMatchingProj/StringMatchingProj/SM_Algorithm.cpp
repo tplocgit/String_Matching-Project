@@ -1,4 +1,4 @@
-#include "SM_Algorithm.h"
+﻿#include "SM_Algorithm.h"
 
 vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, int sizeText) {
 	if (pattern == nullptr || text == nullptr || sizePatt > sizeText)
@@ -8,19 +8,21 @@ vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, i
 	for (int i = 0; i < (sizeText - sizePatt); ++i) {
 		int count = 0;
 		for (int j = 0; j < sizePatt; ++j) {
-			if (pattern[j] == text[i + j])
-				++count;
-			else 
-				break;
+			//if (i + j < sizeText) {
+				if (pattern[j] == text[i + j])//compare char by char..
+					++count;//đếm phần tử giống nhau
+				else
+					break;
+			//}
 		}
-		if (count == sizePatt)
-			ans.push_back(i);
+		if (count == sizePatt)//giống hết
+			ans.push_back(i);//
 	}
 	return ans;
 }
 
 
-vector<int> SM_Algorithm::Kabin_Karp(char* pattern, int m, char* text, int n) {
+vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)
 		return {};
 
@@ -53,6 +55,7 @@ vector<int> SM_Algorithm::Kabin_Karp(char* pattern, int m, char* text, int n) {
 
 	return res;
 }
+
 
 vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
 	vector<int> result;
