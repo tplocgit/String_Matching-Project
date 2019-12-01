@@ -46,7 +46,24 @@ int main() {
 	//for (int i = 0; i < 5; ++i)
 	//	cout << int(r[i]) << " ";
 	//system("pause");
-	
+	Data p;
+	if (p.Load2DBoard())
+		cout << "Input file was successfully loaded\n";
+	else cout << "error";
+
+	for (int i = 0; i < p.pattern.size(); ++i) {
+		vector<POS> ans = startSearch(p.pattern[i], p.Matrix, RABIN_KARP);
+		if (ans.empty()) {
+			cout << "Pattern " << i << ": 0, 0\n";
+		}
+		else {
+			for (int j = 0; j < ans.size(); ++j) {
+				cout << "Pattern " << i << ": " <<ans.at(j).s_y << " - "  << ans.at(j).s_x << endl;
+			}
+		}
+		cout << "Finished Patt " << i << endl;
+	}
+
 	system("pause");
 	return 0;
 }
