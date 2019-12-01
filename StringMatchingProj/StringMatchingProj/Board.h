@@ -8,8 +8,14 @@ enum RESULT_STATUS {
 };
 
 struct POS {
-	int x, y;
+	int s_x, s_y;
 	RESULT_STATUS status;
+	//---------------
+	POS(int y, int x, RESULT_STATUS stat) {
+		s_x = y;
+		s_y = x;
+		status = stat;
+	}
 };
 
 class Board

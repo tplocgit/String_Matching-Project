@@ -2,13 +2,13 @@
 #include "Board.h"
 
 
-void Data::Load2DBoard()
+bool Data::Load2DBoard()
 {
 	ifstream f;
 	f.open("input.txt");
 	//Board BOARD;
 	if (!f.is_open())
-		throw "error";
+		return 0;
 	f >> Matrix.s_width >> Matrix.s_height;
 	Matrix.s_board = new char* [Matrix.s_height];
 	for (int i = 0; i < Matrix.s_height; ++i)
@@ -41,4 +41,5 @@ void Data::Load2DBoard()
 	}
 	*/
 	f.close();
+	return 1;
 }
