@@ -14,7 +14,7 @@ struct POS {
 
 class Board
 {
-private:
+public:
 	int s_height, s_width;
 	char** s_board;
 
