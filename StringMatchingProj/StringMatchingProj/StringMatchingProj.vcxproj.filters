@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Source Files\Input File">
+      <UniqueIdentifier>{8d7a2551-2151-419b-8f8a-d7658cdf2b4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -57,8 +60,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt">
-      <Filter>Source Files</Filter>
+    <Text Include="input10x10.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input25x25.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input50x50.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input75x75.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input100x100.txt">
+      <Filter>Source Files\Input File</Filter>
     </Text>
   </ItemGroup>
 </Project>

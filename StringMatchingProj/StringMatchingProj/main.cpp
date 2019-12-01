@@ -49,19 +49,20 @@ int main() {
 	*/Data p;
 	if (p.Load2DBoard())
 		cout << "Input file was successfully loaded\n";
-	else cout << "error";
+	else 
+		cout << "Error: Input file is inaccessible!!!!\n";
 	
 	for (int i = 0; i < p.pattern.size(); ++i) {
 		vector<POS> ans = startSearch(p.pattern[i], p.Matrix, RABIN_KARP);
 		if (ans.empty()) {
-			cout << "Pattern " << i << ": 0, 0\n";
+			cout << "Pattern " << i + 1 << ": 0, 0\n";
 		}
 		else {
 			for (int j = 0; j < ans.size(); ++j) {
-				cout << "Pattern " << i << ": " <<ans.at(j).s_y << " - "  << ans.at(j).s_x << endl;
+				cout << "Pattern " << i + 1 << ": " <<ans.at(j).s_y << " - "  << ans.at(j).s_x << endl;
 			}
 		}
-		//cout << "Finished Patt " << i << endl;
+		//cout << "Finished Patt " << i + 1<< endl;
 	}
 
 	system("pause");

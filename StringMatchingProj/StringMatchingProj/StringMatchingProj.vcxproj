@@ -141,7 +141,11 @@
     <ClCompile Include="SM_Algorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
+    <Text Include="input100x100.txt" />
+    <Text Include="input10x10.txt" />
+    <Text Include="input25x25.txt" />
+    <Text Include="input50x50.txt" />
+    <Text Include="input75x75.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
