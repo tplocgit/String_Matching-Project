@@ -1,7 +1,9 @@
 #pragma onceonce
 #include "pch.h"
 
-class FileEater
+struct Data
 {
+	Board Matrix;
+	vector <string> pattern;
+	void Load2DBoard();
 };
-
