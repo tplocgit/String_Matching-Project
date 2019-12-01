@@ -10,7 +10,11 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 		return {};
 
 	for (auto i = 0; i < table.s_height; ++i) {
-		char* list = table.getRow(i);
+		char* list = nullptr;
+		list = table.getRow(i);
+
+		if (list == nullptr)
+			break;
 		//vector <int> pos_y;
 		vector<int> x;
 		// search theo từng Algor 
@@ -29,13 +33,17 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 				ans.push_back(place);
 			}
 		}
-
+		if (list != nullptr)
+			delete list;
 	}
 
 
 	//---Dọc-----
 	for (auto i = 0; i < table.s_width; ++i) {
-		char* list = table.getCol(i);
+		char* list = nullptr;
+		list = table.getCol(i);
+		if (list == nullptr)
+			break;
 		//vector <int> pos_x;
 		vector<int> y;
 		if (p == BRUTE_FORCE)
@@ -54,7 +62,11 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 			}
 		}
 
+		if (list != nullptr)
+			delete list;
 	}
+
+	delete[]key;
 	return ans;
 }
 

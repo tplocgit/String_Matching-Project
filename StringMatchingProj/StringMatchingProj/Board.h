@@ -27,6 +27,7 @@ public:
 public:
 	Board();
 	Board(int height, int width);
+	Board(const Board& obj);
 	~Board();
 
 public:
