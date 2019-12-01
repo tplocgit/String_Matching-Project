@@ -1,6 +1,5 @@
 #include "Board.h"
 #include"CrossWord.h"
-#include"GUI.h"
 #include"FileEater.h"
 
 int main() {
@@ -37,7 +36,7 @@ int main() {
 	delete t, p;*/
 	////-------------------------------------------------------------
 	Data p;
-	if (p.Load2DBoard())
+	if (p.Load2DBoard("input100x100.txt"))
 		cout << "Input file was successfully loaded\n";
 	else
 		cout << "Error: Input file is inaccessible!!!!\n";
@@ -48,6 +47,7 @@ int main() {
 	}
 	
 	p.cumOutput(ans, p.pattern);
+	cout << "==> All task completed\n";
 	system("pause");
 	return 0;
 }

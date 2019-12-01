@@ -4,6 +4,6 @@
 struct Data{
 	Board Matrix;
 	vector <string> pattern;
-	bool Load2DBoard();
+	bool Load2DBoard(string fileName);
 	void cumOutput(vector<vector<POS>> list, vector<string> nameList);
 };

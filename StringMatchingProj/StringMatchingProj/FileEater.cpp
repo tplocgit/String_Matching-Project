@@ -3,10 +3,10 @@
 #include "CrossWord.h"
 
 
-bool Data::Load2DBoard()
+bool Data::Load2DBoard(string fileName)
 {
 	ifstream f;
-	f.open("input50x50.txt");
+	f.open(fileName);
 	//Board BOARD;
 	if (!f.is_open())
 		return 0;
