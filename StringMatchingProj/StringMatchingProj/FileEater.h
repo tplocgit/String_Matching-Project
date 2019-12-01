@@ -5,5 +5,5 @@ struct Data{
 	Board Matrix;
 	vector <string> pattern;
 	bool Load2DBoard();
-	void cumOutput();
+	void cumOutput(vector<vector<POS>> list, vector<string> nameList);
 };

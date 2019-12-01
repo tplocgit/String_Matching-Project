@@ -36,20 +36,18 @@ int main() {
 
 	delete t, p;*/
 	////-------------------------------------------------------------
-	/*
-	Board p(5, 5);
-
-	p.printCol(1);
-	char* r = p.getCol(1);
-
-	cout << "\n";
-	for (int i = 0; i < 5; ++i)
-		cout << int(r[i]) << " ";
-	
-	*/
-
 	Data p;
-	p.cumOutput();
+	if (p.Load2DBoard())
+		cout << "Input file was successfully loaded\n";
+	else
+		cout << "Error: Input file is inaccessible!!!!\n";
+	vector<vector<POS>> ans;
+	for (int i = 0; i < p.pattern.size(); ++i) {
+		vector<POS> searchPatt = startSearch(p.pattern[i], p.Matrix, RABIN_KARP);
+		ans.push_back(searchPatt);
+	}
+	
+	p.cumOutput(ans, p.pattern);
 	system("pause");
 	return 0;
 }

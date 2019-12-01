@@ -45,29 +45,29 @@ bool Data::Load2DBoard()
 	return 1;
 }
 
-void Data::cumOutput()
+void Data::cumOutput(vector<vector<POS>> list, vector<string> nameList)
 {
 	ofstream f;
+	if (list.empty())
+		throw "Error: Empty input";
 	f.open("output.txt", ios::out);
 	if (!f.is_open())
-		throw "????????????";
-	Data p;
-	if (p.Load2DBoard())
-		cout << "Input file was successfully loaded\n";
-	else
-		cout << "Error: Input file is inaccessible!!!!\n";
-
-	for (int i = 0; i < p.pattern.size(); ++i) {
-		vector<POS> ans = startSearch(p.pattern[i], p.Matrix, RABIN_KARP);
-		if (ans.empty()) {
-			cout << "Pattern " << i + 1 << ": 0, 0\n";
-		}
+		throw "Error: ???????????";
+	int count = 0;
+	for (auto i = 0; i < list.size(); ++i) 
+		if (!list[i].empty())
+			++count;
+	
+	f << count << '\n';
+	for (auto i = 0; i < list.size(); ++i) {
+		if (list[i].empty())
+			f << nameList[i] << " (0,0) NF" << endl;
 		else {
-			for (int j = 0; j < ans.size(); ++j) {
-				f << p.pattern.at(j) << "(" << ans.at(j).s_y << "," << ans.at(j).s_x << ") " << ans.at(j).getStat() << endl;
+			for (auto j = 0; j < list[i].size(); ++j) {
+				f << nameList[i] << " (" << list[i][j].s_x << "," << list[i][j].s_y << ") " << list[i][j].getStat() << endl;
 			}
 		}
-		
 	}
+	
 	f.close();
 }

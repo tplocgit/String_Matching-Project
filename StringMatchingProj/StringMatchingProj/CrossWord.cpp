@@ -65,10 +65,10 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 		if (list != nullptr)
 			delete list;
 	}
-	if (x.empty() && y.empty()) {
+	/*if (x.empty() && y.empty()) {
 		POS place;
 		ans.push_back(place);
-	}
+	}*/
 	delete[]key;
 	return ans;
 }
