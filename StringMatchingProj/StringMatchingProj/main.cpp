@@ -59,7 +59,7 @@ int main() {
 		}
 		else {
 			for (int j = 0; j < ans.size(); ++j) {
-				cout << "Pattern " << i + 1 << ": " <<ans.at(j).s_y << " - "  << ans.at(j).s_x << endl;
+				cout << "Pattern " << i + 1 << ": " <<ans.at(j).s_y << " - "  << ans.at(j).s_x << " "<<int(ans.at(j).status) << endl;
 			}
 		}
 		//cout << "Finished Patt " << i + 1<< endl;

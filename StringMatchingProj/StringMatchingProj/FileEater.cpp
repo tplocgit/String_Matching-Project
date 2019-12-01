@@ -5,7 +5,7 @@
 bool Data::Load2DBoard()
 {
 	ifstream f;
-	f.open("input10x10.txt");
+	f.open("input50x50.txt");
 	//Board BOARD;
 	if (!f.is_open())
 		return 0;

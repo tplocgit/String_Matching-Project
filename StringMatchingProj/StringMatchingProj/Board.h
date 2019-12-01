@@ -11,10 +11,22 @@ struct POS {
 	int s_x, s_y;
 	RESULT_STATUS status;
 	//---------------
+	POS() {
+		s_x = s_y = 0;
+		status = NOT_FOUND;
+	}
 	POS(int y, int x, RESULT_STATUS stat) {
-		s_x = y;
-		s_y = x;
+		s_x = x;
+		s_y = y;
 		status = stat;
+	}
+	//------------
+	string getStat() {
+		if (status == LEFT_RIGHT)
+			return "LR";
+		else if (status == TOP_DOWN)
+			return "TD";
+		else return "NF";
 	}
 };
 

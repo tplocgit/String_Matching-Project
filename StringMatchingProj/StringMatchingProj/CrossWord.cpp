@@ -9,6 +9,8 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 	if (key == nullptr)
 		return {};
 
+	vector<int> x, y;
+
 	for (auto i = 0; i < table.s_height; ++i) {
 		char* list = nullptr;
 		list = table.getRow(i);
@@ -16,7 +18,6 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 		if (list == nullptr)
 			break;
 		//vector <int> pos_y;
-		vector<int> x;
 		// search theo từng Algor 
 		if (p == BRUTE_FORCE)
 			x = SM_Algorithm::Brute_Force(key, patt.length(), list, table.s_width);
@@ -45,7 +46,6 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 		if (list == nullptr)
 			break;
 		//vector <int> pos_x;
-		vector<int> y;
 		if (p == BRUTE_FORCE)
 			y = SM_Algorithm::Brute_Force(key, patt.length(), list, table.s_height);
 
@@ -65,7 +65,10 @@ vector<POS> startSearch(string patt, Board table, searchAl p) {
 		if (list != nullptr)
 			delete list;
 	}
-
+	if (x.empty() && y.empty()) {
+		POS place;
+		ans.push_back(place);
+	}
 	delete[]key;
 	return ans;
 }
