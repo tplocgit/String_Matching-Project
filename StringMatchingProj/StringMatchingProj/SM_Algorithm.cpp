@@ -1,20 +1,19 @@
 ﻿#include "SM_Algorithm.h"
 
 vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, int sizeText) {
-	if (pattern == nullptr || text == nullptr || sizePatt > sizeText)
+	if (pattern == nullptr || text == nullptr || sizeText < sizePatt || sizePatt < 0 || sizeText < 0)
 		throw "Error: Invalid input";
 
 	vector<int> ans;
-	for (int i = 0; i < (sizeText - sizePatt); ++i) {
+	for (int i = 0; i <= (sizeText - sizePatt); ++i) {
 		int count = 0;
-		for (int j = 0; j < sizePatt; ++j) {
-			//if (i + j < sizeText) {
-				if (pattern[j] == text[i + j])//compare char by char..
-					++count;//đếm phần tử giống nhau
-				else
-					break;
-			//}
+		while (count < sizePatt) {
+			if (pattern[count] != text[i + count])
+				break;
+			else
+				++count;
 		}
+
 		if (count == sizePatt)//giống hết
 			ans.push_back(i);//
 	}
