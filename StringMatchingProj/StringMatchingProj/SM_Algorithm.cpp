@@ -26,7 +26,7 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 		return {};
 
 	int q = 29;// Prime number
-	int64_t h = int64_t(pow(d, m - 1)) % q;
+	int h = SM_Algorithm::Pow_Mod_q(d, m - 1, q);
 	vector<int> res;
 
 	//d: number of char in alphabet
@@ -102,7 +102,7 @@ vector<int> SM_Algorithm::findLPS(char* pattern, int m) {
 	lps.resize(m);
 	lps[0] = 0;
 	int j = 0;// Index of lps for saving longest prefix suffix for each position in pattern
-	for(int i = 1; i < m; i++) {
+	for (int i = 1; i < m; i++) {
 		while ((pattern[j] != pattern[i]) && j > 0)// Reset j
 			j = lps[j - 1];
 		if (pattern[j] == pattern[i])// Match then increase j
@@ -120,8 +120,20 @@ string SM_Algorithm::Algo_String_Name(searchAl enumName) {
 		name = "RAbin_Karp";
 	else
 		name = "Knuth_Morris_Pratt";
-	
+
 	if (name.empty())
 		name = "<Undefine>";
 	return name;
+}
+
+int SM_Algorithm::Pow_Mod_q(int x, int n, int q) {
+	if (n == 1)
+		return x % q;
+	int val = SM_Algorithm::Pow_Mod_q(x, n / 2, q);
+
+	if (n % 2 == 0)
+		return (val * val) % q;
+	else
+		return (x * val * val) % q;
+
 }
