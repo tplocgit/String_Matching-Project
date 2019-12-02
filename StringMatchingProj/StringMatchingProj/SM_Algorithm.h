@@ -2,6 +2,13 @@
 #include "pch.h"
 #define d 26 //Number of charcters
 
+enum searchAl {
+	BRUTE_FORCE,
+	RABIN_KARP,
+	KNUTH_MORRIS_PRATT,
+	NONE
+};
+
 class SM_Algorithm
 {
 public:
@@ -10,7 +17,8 @@ public:
 	static vector<int> Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize);
 
 public:
+	string Algo_String_Name(searchAl enumName);
 	static int String_Hashing(char* patt,int length ,int q);
-	static int String_ReHashing(int hash_value, char first_char, char new_char, int h, int q);
+	static int String_ReHashing(int hash_value, char first_char, char new_char, int64_t h, int q);
 	static vector<int> findLPS(char* pattern, int m);
 };

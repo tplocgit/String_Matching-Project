@@ -36,7 +36,7 @@ int main() {
 	delete t, p;*/
 	////-------------------------------------------------------------
 	Data p;
-	if (p.Load2DBoard("input100x100.txt"))
+	if (p.Load2DBoard("input10x10.txt"))
 		cout << "Input file was successfully loaded\n";
 	else
 		cout << "Error: Input file is inaccessible!!!!\n";

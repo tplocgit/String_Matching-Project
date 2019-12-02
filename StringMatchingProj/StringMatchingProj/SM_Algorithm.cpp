@@ -26,7 +26,7 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 		return {};
 
 	int q = 29;// Prime number
-	int h = int(pow(d, m - 1)) % q;
+	int64_t h = int64_t(pow(d, m - 1)) % q;
 	vector<int> res;
 
 	//d: number of char in alphabet
@@ -91,7 +91,7 @@ int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
 }
 
 //------------------------------------------------
-int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int h, int q) {// O(1)
+int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int64_t h, int q) {// O(1)
 	int t = (d * (hash_value - h * first_char) + new_char) % q;
 	// t may be a negative value, so we need to make it become positive
 	return t >= 0 ? t : t + q;
@@ -110,4 +110,18 @@ vector<int> SM_Algorithm::findLPS(char* pattern, int m) {
 		lps[i] = j;// Save longest prefix suffix at position i
 	}
 	return lps;
+}
+
+string SM_Algorithm::Algo_String_Name(searchAl enumName) {
+	string name;
+	if (enumName == BRUTE_FORCE)
+		name = "Brute_Force";
+	else if (enumName == RABIN_KARP)
+		name = "RAbin_Karp";
+	else
+		name = "Knuth_Morris_Pratt";
+	
+	if (name.empty())
+		name = "<Undefine>";
+	return name;
 }
