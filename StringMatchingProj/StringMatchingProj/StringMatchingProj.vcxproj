@@ -143,6 +143,7 @@
     <Text Include="input50x50.txt" />
     <Text Include="input75x75.txt" />
     <Text Include="output.txt" />
+    <Text Include="input200x100.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

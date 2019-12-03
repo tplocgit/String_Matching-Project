@@ -45,15 +45,17 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 			while (count < m && pattern[count - 1] == text[s + count - 1])
 				count++; // Count same character, O(m)
 			if (count == m)// All character is matching
-				t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
+				res.push_back(s);
 		}
+		if (s < n - m)
+			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
 
-		return res;
 	}
+	return res;
 }
 
 
-vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize){
+vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
 	vector<int> result;
 	vector<int> lps = findLPS(pattern, pSize);// Pre-processing, find longest prefix suffix for skipping, O(m)
 
@@ -117,7 +119,7 @@ string SM_Algorithm::Algo_String_Name(searchAl enumName) {
 	if (enumName == BRUTE_FORCE)
 		name = "Brute_Force";
 	else if (enumName == RABIN_KARP)
-		name = "RAbin_Karp";
+		name = "Rabin_Karp";
 	else
 		name = "Knuth_Morris_Pratt";
 

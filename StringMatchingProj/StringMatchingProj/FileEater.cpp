@@ -6,7 +6,8 @@
 bool Data::Load2DBoard(string fileName)
 {
 	ifstream f;
-	f.open(fileName);
+	string path = fileName + ".txt";
+	f.open(path);
 	//Board BOARD;
 	if (!f.is_open())
 		return 0;

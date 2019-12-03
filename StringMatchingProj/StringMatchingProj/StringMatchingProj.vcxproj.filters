@@ -69,5 +69,8 @@
     <Text Include="output.txt">
       <Filter>Source Files\Ouput Files</Filter>
     </Text>
+    <Text Include="input200x100.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
   </ItemGroup>
 </Project>
