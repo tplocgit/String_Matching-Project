@@ -14,7 +14,7 @@ vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, i
 				++count;
 		}
 
-		if (count == sizePatt)//giống hết
+		if (count == sizePatt)// All match
 			ans.push_back(i);//
 	}
 	return ans;
@@ -25,7 +25,7 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)// Invalid input
 		return {};// Emty array(vector)
 
-	;// Prime number
+	// Prime number
 	int h = SM_Algorithm::Pow_Mod_q(d, m - 1);// h = d^(m - 1) mod q
 	vector<int> res;
 
@@ -41,14 +41,11 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 
 	// O(m(n-m)) matching
 	for (int s = 0; s <= n - m; ++s) {// O(n - m)
-		if (p == t) {// MAtching
-			int count = 1;
+		if (p == t) {// Matching
+			int count = 1;// Store number of character that match
 			while (count < m && pattern[count - 1] == text[s + count - 1])
 				count++; // Count same character, O(m)
-			if (count == m)// All character is same
-				res.push_back(s);
-		}
-		if (s <= n - m)// Rehashing for new sub-text
+			if (count == m)// All character is matching
 			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
 	}
 
@@ -58,10 +55,12 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 
 vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
 	vector<int> result;
-	vector<int> lps = findLPS(pattern, pSize);
-	int j = 0;// Index of lps for skipping number of characters
+	vector<int> lps = findLPS(pattern, pSize);// Pre-processing, find longest prefix suffix for skipping, O(m)
+	
+	int j = 0;// Store index of lps for skipping number of characters
+	
 	for (int i = 0; i < tSize; i++) {
-		while (j > 0 && (pattern[j] != text[i]))// Pattern and text doesn't match, reset j
+		while (j > 0 && (pattern[j] != text[i]))// Pattern and sub-text doesn't match, reset j
 			j = lps[j - 1];
 		if (pattern[j] == text[i])// If pattern and text match increase j
 			j++;
@@ -76,13 +75,14 @@ vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* tex
 int SM_Algorithm::String_Hashing(char* patt, int length) {// O(m)
 	if (patt == nullptr)
 		throw "Error: Invalid input";
+
 	// d: alphabet character
 	// m: length of pattern
 	// q: a prime number
 	// h: d^(m - 1) % q
 	// p: result
 
-	int p = 0;
+	int p = 0;// Store hash value of input
 
 	for (int i = 0; i < length; ++i)
 		p = (d * p + patt[i]) % q;
@@ -91,8 +91,8 @@ int SM_Algorithm::String_Hashing(char* patt, int length) {// O(m)
 }
 
 //------------------------------------------------
-int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int64_t h) {// O(1)
-	int t = (d * (hash_value - h * first_char) + new_char) % q;
+int SM_Algorithm::String_ReHashing(int hash_value, char MSD, char LSD, int64_t h) {// O(1)
+	int t = (d * (hash_value - h * MSD) + LSD) % q;
 	// t may be a negative value, so we need to make it become positive
 	return t >= 0 ? t : t + q;
 }
