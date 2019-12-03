@@ -1,7 +1,8 @@
 #include "Board.h"
 #include"CrossWord.h"
 #include"FileEater.h"
-
+#include <chrono> 
+using namespace std::chrono;
 int main() {
 	// For testing
 	/*char* t, * p;
@@ -57,12 +58,16 @@ int main() {
 			tp = RABIN_KARP;
 		else
 			tp = KNUTH_MORRIS_PRATT;
+		auto start = high_resolution_clock::now();///////////////////////////////
 
 		for (int i = 0; i < p.pattern.size(); ++i) {
 			vector<POS> searchPatt = startSearch(p.pattern[i], p.Matrix, tp);
 			ans.push_back(searchPatt);
 		}
+		auto stop = high_resolution_clock::now();//////////////////////
+		auto duration = duration_cast<microseconds>(stop - start);
 		string AlName = SM_Algorithm::Algo_String_Name(tp);
+		cout << "\n" << AlName << " completed in " << duration.count() << " microseconds!!!\n";
 		//----------Output-----------------
 		try {
 			p.cumOutput(ans, p.pattern, AlName + "_output_" + outputName);

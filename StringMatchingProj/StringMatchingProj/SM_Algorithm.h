@@ -10,7 +10,6 @@ enum searchAl {
 	KNUTH_MORRIS_PRATT,
 	NONE
 };
-string Algo_String_Name(searchAl enumName);
 
 class SM_Algorithm
 {
@@ -21,6 +20,7 @@ public:
 
 public:
 	static int Pow_Mod_q(int x,int n);
+	static string Algo_String_Name(searchAl enumName);
 	static int String_Hashing(char* patt,int length);
 	static int String_ReHashing(int hash_value, char first_char, char new_char, int64_t h);
 	static vector<int> findLPS(char* pattern, int m);
