@@ -22,11 +22,11 @@ vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, i
 
 
 vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
-	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)
-		return {};
+	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)// Invalid input
+		return {};// Emty array(vector)
 
-	int q = 29;// Prime number
-	int h = SM_Algorithm::Pow_Mod_q(d, m - 1, q);
+	;// Prime number
+	int h = SM_Algorithm::Pow_Mod_q(d, m - 1);// h = d^(m - 1) mod q
 	vector<int> res;
 
 	//d: number of char in alphabet
@@ -36,20 +36,20 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 	//p: result
 
 	// Pre-processing, O(2m)
-	int p = SM_Algorithm::String_Hashing(pattern, m, q);
-	int t = SM_Algorithm::String_Hashing(text, m, q);
+	int p = SM_Algorithm::String_Hashing(pattern, m);
+	int t = SM_Algorithm::String_Hashing(text, m);
 
 	// O(m(n-m)) matching
 	for (int s = 0; s <= n - m; ++s) {// O(n - m)
-		if (p == t) {
+		if (p == t) {// MAtching
 			int count = 1;
 			while (count < m && pattern[count - 1] == text[s + count - 1])
 				count++; // Count same character, O(m)
 			if (count == m)// All character is same
 				res.push_back(s);
 		}
-		if (s <= n - m)
-			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h, q);
+		if (s <= n - m)// Rehashing for new sub-text
+			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
 	}
 
 	return res;
@@ -73,7 +73,7 @@ vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* tex
 	return result;
 }
 
-int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
+int SM_Algorithm::String_Hashing(char* patt, int length) {// O(m)
 	if (patt == nullptr)
 		throw "Error: Invalid input";
 	// d: alphabet character
@@ -91,7 +91,7 @@ int SM_Algorithm::String_Hashing(char* patt, int length, int q) {// O(m)
 }
 
 //------------------------------------------------
-int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int64_t h, int q) {// O(1)
+int SM_Algorithm::String_ReHashing(int hash_value, char first_char, char new_char, int64_t h) {// O(1)
 	int t = (d * (hash_value - h * first_char) + new_char) % q;
 	// t may be a negative value, so we need to make it become positive
 	return t >= 0 ? t : t + q;
@@ -126,10 +126,11 @@ string SM_Algorithm::Algo_String_Name(searchAl enumName) {
 	return name;
 }
 
-int SM_Algorithm::Pow_Mod_q(int x, int n, int q) {
+int SM_Algorithm::Pow_Mod_q(int x, int n) {
 	if (n == 1)
 		return x % q;
-	int val = SM_Algorithm::Pow_Mod_q(x, n / 2, q);
+
+	int val = SM_Algorithm::Pow_Mod_q(x, n / 2);
 
 	if (n % 2 == 0)
 		return (val * val) % q;

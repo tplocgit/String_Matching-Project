@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
+
 #define d 26 //Number of charcters
+#define q 29 // Prime number
 
 enum searchAl {
 	BRUTE_FORCE,
@@ -17,9 +19,9 @@ public:
 	static vector<int> Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize);
 
 public:
-	static int Pow_Mod_q(int a,int b, int q);
+	static int Pow_Mod_q(int x,int n);
 	static string Algo_String_Name(searchAl enumName);
-	static int String_Hashing(char* patt,int length ,int q);
-	static int String_ReHashing(int hash_value, char first_char, char new_char, int64_t h, int q);
+	static int String_Hashing(char* patt,int length);
+	static int String_ReHashing(int hash_value, char first_char, char new_char, int64_t h);
 	static vector<int> findLPS(char* pattern, int m);
 };
