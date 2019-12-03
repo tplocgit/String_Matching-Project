@@ -35,19 +35,43 @@ int main() {
 
 	delete t, p;*/
 	////-------------------------------------------------------------
+	string name;
+	cout << "Enter input file name:\t";
+	cin >> name;
 	Data p;
-	if (p.Load2DBoard("input100x100.txt"))
+	if (p.Load2DBoard(name))
 		cout << "Input file was successfully loaded\n";
-	else
+	else {
 		cout << "Error: Input file is inaccessible!!!!\n";
-	vector<vector<POS>> ans;
-	for (int i = 0; i < p.pattern.size(); ++i) {
-		vector<POS> searchPatt = startSearch(p.pattern[i], p.Matrix, RABIN_KARP);
-		ans.push_back(searchPatt);
+		system("pause");
+		return 0;
 	}
-	
-	p.cumOutput(ans, p.pattern);
+	name.erase(name.begin(), name.begin() + 5);
+	string outputName = name;
+	for (int run = 0; run < 3; ++run) {
+		vector<vector<POS>> ans;
+		searchAl tp;
+		if (run == 0)
+			tp = BRUTE_FORCE;
+		else if (run == 1)
+			tp = RABIN_KARP;
+		else
+			tp = KNUTH_MORRIS_PRATT;
+
+		for (int i = 0; i < p.pattern.size(); ++i) {
+			vector<POS> searchPatt = startSearch(p.pattern[i], p.Matrix, tp);
+			ans.push_back(searchPatt);
+		}
+		string AlName = SM_Algorithm::Algo_String_Name(tp);
+		//----------Output-----------------
+		try {
+			p.cumOutput(ans, p.pattern, AlName + "_output_" + outputName);
+		}
+		catch (string k) {
+			cout << "\nError: " << k << "- Can't output result file\n";
+		}
+	}
 	cout << "==> All task completed\n";
 	system("pause");
-	return 0;
+	return 1;
 }

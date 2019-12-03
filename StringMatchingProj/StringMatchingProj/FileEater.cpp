@@ -45,19 +45,19 @@ bool Data::Load2DBoard(string fileName)
 	return 1;
 }
 
-void Data::cumOutput(vector<vector<POS>> list, vector<string> nameList)
+void Data::cumOutput(vector<vector<POS>> list, vector<string> nameList, string name)
 {
 	ofstream f;
 	if (list.empty())
 		throw "Error: Empty input";
-	f.open("output.txt", ios::out);
+	f.open(name + ".txt", ios::out);
 	if (!f.is_open())
 		throw "Error: ???????????";
 	int count = 0;
-	for (auto i = 0; i < list.size(); ++i) 
+	for (auto i = 0; i < list.size(); ++i)
 		if (!list[i].empty())
 			++count;
-	
+
 	f << count << '\n';
 	for (auto i = 0; i < list.size(); ++i) {
 		if (list[i].empty())
@@ -68,6 +68,6 @@ void Data::cumOutput(vector<vector<POS>> list, vector<string> nameList)
 			}
 		}
 	}
-	
+
 	f.close();
 }

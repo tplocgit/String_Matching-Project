@@ -20,7 +20,6 @@ vector<int> SM_Algorithm::Brute_Force(char* pattern, int sizePatt, char* text, i
 	return ans;
 }
 
-
 vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 	if (pattern == nullptr || text == nullptr || m < 0 || n < 0 || n < m)// Invalid input
 		return {};// Emty array(vector)
@@ -53,7 +52,7 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 }
 
 
-vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
+vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize){
 	vector<int> result;
 	vector<int> lps = findLPS(pattern, pSize);// Pre-processing, find longest prefix suffix for skipping, O(m)
 	
