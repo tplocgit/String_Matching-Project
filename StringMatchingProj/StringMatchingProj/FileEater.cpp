@@ -1,14 +1,15 @@
 #include "FileEater.h"
 #include "Board.h"
+#include "CrossWord.h"
 
 
-void Data::Load2DBoard()
+bool Data::Load2DBoard(string fileName)
 {
 	ifstream f;
-	f.open("input.txt");
+	f.open(fileName);
 	//Board BOARD;
 	if (!f.is_open())
-		throw "error";
+		return 0;
 	f >> Matrix.s_width >> Matrix.s_height;
 	Matrix.s_board = new char* [Matrix.s_height];
 	for (int i = 0; i < Matrix.s_height; ++i)
@@ -40,5 +41,33 @@ void Data::Load2DBoard()
 		cout << endl;
 	}
 	*/
+	f.close();
+	return 1;
+}
+
+void Data::cumOutput(vector<vector<POS>> list, vector<string> nameList, string name)
+{
+	ofstream f;
+	if (list.empty())
+		throw "Error: Empty input";
+	f.open(name + ".txt", ios::out);
+	if (!f.is_open())
+		throw "Error: ???????????";
+	int count = 0;
+	for (auto i = 0; i < list.size(); ++i)
+		if (!list[i].empty())
+			++count;
+
+	f << count << '\n';
+	for (auto i = 0; i < list.size(); ++i) {
+		if (list[i].empty())
+			f << nameList[i] << " (0,0) NF" << endl;
+		else {
+			for (auto j = 0; j < list[i].size(); ++j) {
+				f << nameList[i] << " (" << list[i][j].s_x << "," << list[i][j].s_y << ") " << list[i][j].getStat() << endl;
+			}
+		}
+	}
+
 	f.close();
 }

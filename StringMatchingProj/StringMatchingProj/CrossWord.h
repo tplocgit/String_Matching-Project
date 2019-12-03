@@ -1,12 +1,14 @@
 #pragma once
-#include "pch.h"
-#include"SM_Algorithm.h"
-#include"Board.h"
+#include "FileEater.h"
+#include "SM_Algorithm.h"
 
+//
+//class CrossWord
+//{
+//public:
+	//Data data;
+	vector<POS> startSearch(string patt, Board table, searchAl p);
 
-
-
-class CrossWord
-{
-};
+	char* convert(string patt);
+//};
 

@@ -9,15 +9,18 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Source Files\Input File">
+      <UniqueIdentifier>{8d7a2551-2151-419b-8f8a-d7658cdf2b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ouput Files">
+      <UniqueIdentifier>{f4bc9878-4a47-47dc-8ded-188fc31d5860}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SM_Algorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileEater.h">
@@ -29,15 +32,9 @@
     <ClInclude Include="Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Console.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SM_Algorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FileEater.cpp">
@@ -49,11 +46,28 @@
     <ClCompile Include="Board.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Console.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input10x10.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input25x25.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input50x50.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input75x75.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="input100x100.txt">
+      <Filter>Source Files\Input File</Filter>
+    </Text>
+    <Text Include="output.txt">
+      <Filter>Source Files\Ouput Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

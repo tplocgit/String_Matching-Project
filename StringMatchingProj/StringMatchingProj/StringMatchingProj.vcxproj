@@ -126,19 +126,23 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="CrossWord.h" />
     <ClInclude Include="FileEater.h" />
-    <ClInclude Include="GUI.h" />
-    <ClInclude Include="Console.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SM_Algorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
-    <ClCompile Include="Console.cpp" />
     <ClCompile Include="CrossWord.cpp" />
     <ClCompile Include="FileEater.cpp" />
-    <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SM_Algorithm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input100x100.txt" />
+    <Text Include="input10x10.txt" />
+    <Text Include="input25x25.txt" />
+    <Text Include="input50x50.txt" />
+    <Text Include="input75x75.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

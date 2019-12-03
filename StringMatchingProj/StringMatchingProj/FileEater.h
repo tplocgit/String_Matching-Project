@@ -1,9 +1,9 @@
-#pragma onceonce
+#pragma once
 #include "pch.h"
-
-struct Data
-{
+#include "Board.h"
+struct Data {
 	Board Matrix;
 	vector <string> pattern;
-	void Load2DBoard();
+	bool Load2DBoard(string fileName);
+	void cumOutput(vector<vector<POS>> list, vector<string> nameList, string name);
 };
