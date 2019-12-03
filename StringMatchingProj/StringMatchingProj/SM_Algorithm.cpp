@@ -46,19 +46,20 @@ vector<int> SM_Algorithm::Rabin_Karp(char* pattern, int m, char* text, int n) {
 			while (count < m && pattern[count - 1] == text[s + count - 1])
 				count++; // Count same character, O(m)
 			if (count == m)// All character is matching
-			t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
-	}
+				t = SM_Algorithm::String_ReHashing(t, text[s], text[s + m], h);
+		}
 
-	return res;
+		return res;
+	}
 }
 
 
 vector<int> SM_Algorithm::Knuth_Morris_Pratt(char* pattern, int pSize, char* text, int tSize) {
 	vector<int> result;
 	vector<int> lps = findLPS(pattern, pSize);// Pre-processing, find longest prefix suffix for skipping, O(m)
-	
+
 	int j = 0;// Store index of lps for skipping number of characters
-	
+
 	for (int i = 0; i < tSize; i++) {
 		while (j > 0 && (pattern[j] != text[i]))// Pattern and sub-text doesn't match, reset j
 			j = lps[j - 1];
