@@ -73,10 +73,10 @@ int main() {
 			p.cumOutput(ans, p.pattern, AlName + "_output_" + outputName);
 		}
 		catch (string k) {
-			cout << "\nError: " << k << "- Can't output result file\n";
+			cout << endl << k << "- Can't output result file\n";
 		}
 	}
-	cout << "==> All task completed\n";
+	cout << "\n==> All task completed\n";
 	system("pause");
 	return 1;
 }
